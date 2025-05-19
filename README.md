@@ -130,4 +130,4 @@ This will load the Swagger UI with your API documentation.
 
 ## Contact
 
-For questions or support, contact [Your Name or Team] at [stephenshifoko@gmail.com].
+For questions or support, contact [Donstesh] at [stephenshifoko@gmail.com].
