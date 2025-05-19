@@ -14,7 +14,7 @@ Build a simplified multi-tenant event management system with Laravel backend and
 - Composer
 - MySQL or any database supported by Laravel
 - Node.js & npm (for Nuxt.js frontend and optionally for Laravel frontend tooling)
-- Laravel 10.x (or your Laravel version)
+- Laravel 12.x (or your Laravel version)
 
 ---
 
