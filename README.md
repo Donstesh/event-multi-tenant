@@ -1,61 +1,133 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Event Multi-Tenant Management System
 
-## About Laravel
+Build a simplified multi-tenant event management system with Laravel backend and Nuxt.js frontend.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Repository
+[https://github.com/Donstesh/event-multi-tenant.git](https://github.com/Donstesh/event-multi-tenant.git)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Requirements
 
-## Learning Laravel
+- PHP >= 8.0
+- Composer
+- MySQL or any database supported by Laravel
+- Node.js & npm (for Nuxt.js frontend and optionally for Laravel frontend tooling)
+- Laravel 10.x (or your Laravel version)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Backend Installation (Laravel)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 1. Clone the repository
 
-## Laravel Sponsors
+```bash
+git clone https://github.com/Donstesh/event-multi-tenant.git
+cd event-multi-tenant
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2. Install PHP dependencies
 
-### Premium Partners
+```bash
+composer install
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 3. Copy `.env` and configure
 
-## Contributing
+```bash
+cp .env.example .env
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Edit `.env` to add your database credentials and other environment variables.
 
-## Code of Conduct
+### 4. Generate application key
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+### 5. Run database migrations
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan migrate
+```
 
-## License
+### 6. (Optional) Install Node dependencies and build assets
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+If you want to use frontend assets built with Laravel Mix or Vite:
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## Frontend Installation (Nuxt.js)
+
+Navigate to your Nuxt.js frontend folder (assumed to be `frontend`):
+
+```bash
+cd public-event
+npm install
+npm run dev
+```
+
+Open your browser at `http://localhost:3000` to view the frontend app.
+
+---
+
+## Running the Laravel Backend
+
+Start the Laravel development server:
+
+```bash
+php artisan serve
+```
+
+By default, the backend runs at `http://localhost:8000`.
+
+---
+
+## API Documentation (Swagger)
+
+### 1. Place your Swagger YAML file
+
+Put your `swagger.yaml` in:
+
+```
+storage/app/api-docs/swagger.yaml
+```
+
+### 2. Access Swagger UI
+
+Open your browser at:
+
+```
+http://localhost:8000/api-docs
+```
+
+This will load the Swagger UI with your API documentation.
+
+---
+
+## Notes
+
+- Configure API authentication tokens or middleware as needed.
+- You can protect the Swagger UI route by adding middleware in `routes/web.php`.
+- Ensure correct permissions to read `swagger.yaml` file.
+
+---
+
+## Troubleshooting
+
+- Verify `swagger.yaml` exists at `storage/app/api-docs`.
+- Confirm the `/api-docs/swagger.yaml` route serves the YAML file with correct content type.
+- Check Laravel logs for any errors.
+
+---
+
+## Contact
+
+For questions or support, contact [Your Name or Team] at [stephenshifoko@gmail.com].
